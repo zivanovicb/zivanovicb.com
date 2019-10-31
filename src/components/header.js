@@ -1,37 +1,44 @@
-import { Link } from "gatsby"
+import { Link } from "react-scroll"
 import styled from "styled-components"
-import React from "react"
+import React, { useState } from "react"
 import Container from "./container"
 
-const Header = () => (
-  <Wrapper>
-    <Container>
-      <Row
-        css={`
-          padding-top: 50px;
-        `}
-      >
-        <Title>
-          branko zivanovic. <span>full-stack javascript engineer</span>
-        </Title>
+const Header = () => {
+  const [activeLinkIndex, setActiveLinkIndex] = useState(0)
+  return (
+    <Wrapper>
+      <Container>
+        <Row>
+          <Title>
+            branko zivanovic. <span>full-stack javascript engineer</span>
+          </Title>
 
-        <Navigation>
-          <ul>
-            <ActiveListItem>
-              <a href="/">about</a>
-            </ActiveListItem>
-            <li>
-              <a href="#tech">tech stack</a>
-            </li>
-            <li>
-              <a href="#projects">projects</a>
-            </li>
-          </ul>
-        </Navigation>
-      </Row>
-    </Container>
-  </Wrapper>
-)
+          <nav>
+            <List>
+              {links.map((l, i) => {
+                return (
+                  <ListItem isActive={l.index === activeLinkIndex}>
+                    <Anchor
+                      to={l.title.replace(" ", "")}
+                      key={i.toString()}
+                      onClick={() => {
+                        setActiveLinkIndex(l.index)
+                      }}
+                      duration={500}
+                      smooth={true}
+                    >
+                      {l.title}
+                    </Anchor>
+                  </ListItem>
+                )
+              })}
+            </List>
+          </nav>
+        </Row>
+      </Container>
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.header`
   width: 100%;
@@ -51,11 +58,17 @@ const Title = styled.h1`
   }
 `
 
-const ActiveListItem = styled.li`
+const List = styled.ul`
+  display: flex;
+`
+
+const ListItem = styled.li`
+  position: relative;
+  margin-right: 25px;
   &:after {
+    display: ${props => (props.isActive ? "block" : "none")};
     content: "";
     position: absolute;
-    display: block;
     width: 5px;
     height: 5px;
     border-radius: 100%;
@@ -63,29 +76,37 @@ const ActiveListItem = styled.li`
     right: -10px;
     top: 50%;
   }
+  &:last-of-type {
+    margin: 0;
+  }
 `
-
-const Navigation = styled.nav`
-  ul {
-    display: flex;
-  }
-  li {
-    position: relative;
-    margin-right: 25px;
-    &:last-of-type {
-      margin: 0;
-    }
-  }
-  li a {
-    color: white;
-    font-size: 14px;
-    line-height: 1;
-  }
+const Anchor = styled(Link)`
+  color: white;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
 `
 
 const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 50px;
 `
+
+const links = [
+  {
+    index: 0,
+    title: "about",
+  },
+  {
+    index: 1,
+    title: "tech stack",
+  },
+  {
+    index: 2,
+    title: "projects",
+  },
+]
+
 export default Header

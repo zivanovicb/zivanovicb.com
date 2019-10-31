@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Icon from "../components/icon"
+import { Element } from "react-scroll"
 
 const IndexPage = () => (
   <Layout>
@@ -33,11 +34,14 @@ const IndexPage = () => (
               <br></br>
               <br></br>
               I’m a Full-stack JavaScript Engineer based in Belgrade 🇷🇸 with 5
-              years of professional experience. I love writing TypeScript, React
-              & Node in my synthwave code editor while listening to this guy, or
-              switching amazing channels of di.fm. Passionate about GraphQL &
-              OSS.
-              <br></br>
+              years of professional experience.
+              <br></br>I love writing TypeScript, React & Node in my &nbsp;
+              <Exotic css={``}>exotic code editor</Exotic>
+              &nbsp; while randomly switching channels on{" "}
+              <a target="_blank" href="https://di.fm">
+                di.fm
+              </a>
+              .<br></br>
               <br></br>
               When not working, I like to toy with different programming
               paradigms & languages, play tennis & enjoy life.
@@ -64,117 +68,122 @@ const IndexPage = () => (
         </BioWrapper>
       </Section>
 
-      <Section
-        css={`
-          @media screen and (max-width: 550px) {
-            display: none;
-          }
-        `}
-      >
-        <SectionTitle>tech stack</SectionTitle>
-        <div
+      <Element name="techstack">
+        <Section
           css={`
-            position: relative;
+            @media screen and (max-width: 550px) {
+              display: none;
+            }
           `}
         >
-          <Icon
-            name="techstackSeparator"
-            width="30px"
-            height="273px"
+          <SectionTitle>tech stack</SectionTitle>
+          <div
             css={`
-              margin-right: 110px;
-            `}
-          />
-          <TechListTitle
-            css={`
-              top: -8px;
-              left: 45px;
+              position: relative;
             `}
           >
-            front-end
-          </TechListTitle>
+            <Icon
+              name="techstackSeparator"
+              width="30px"
+              height="273px"
+              css={`
+                margin-right: 110px;
+              `}
+            />
+            <TechListTitle
+              css={`
+                top: -8px;
+                left: 45px;
+              `}
+            >
+              front-end
+            </TechListTitle>
 
-          <TechList
-            css={`
-              top: -21px;
-            `}
-          >
-            {frontendTech.map((t, i) => {
-              return <TechListItem key={i.toString()}>{t}</TechListItem>
+            <TechList
+              css={`
+                top: -21px;
+              `}
+            >
+              {frontendTech.map((t, i) => {
+                return <TechListItem key={i.toString()}>{t}</TechListItem>
+              })}
+            </TechList>
+
+            <TechListTitle
+              css={`
+                top: 82px;
+                left: 45px;
+              `}
+            >
+              testing
+            </TechListTitle>
+            <TechList
+              css={`
+                top: 78px;
+              `}
+            >
+              {testingTech.map((t, i) => {
+                return <TechListItem key={i.toString()}>{t}</TechListItem>
+              })}
+            </TechList>
+
+            <TechListTitle
+              css={`
+                top: 171px;
+                left: 45px;
+              `}
+            >
+              back-end
+            </TechListTitle>
+            <TechList
+              css={`
+                top: 155px;
+              `}
+            >
+              {backendCloudTech.map((t, i) => {
+                return <TechListItem key={i.toString()}>{t}</TechListItem>
+              })}
+            </TechList>
+
+            <TechListTitle
+              css={`
+                top: 261px;
+                left: 45px;
+              `}
+            >
+              cloud
+            </TechListTitle>
+
+            <TechList
+              css={`
+                top: 255px;
+              `}
+            >
+              {cloudTech.map((t, i) => {
+                return <TechListItem key={i.toString()}>{t}</TechListItem>
+              })}
+            </TechList>
+          </div>
+        </Section>
+      </Element>
+
+      <Element name="projects">
+        <Section>
+          <SectionTitle>projects</SectionTitle>
+
+          <List>
+            {projects.map((p, i) => {
+              return (
+                <ListItem key={i.toString()}>
+                  <Anchor target="_blank" href={p.href}>
+                    {p.title}
+                  </Anchor>
+                </ListItem>
+              )
             })}
-          </TechList>
-
-          <TechListTitle
-            css={`
-              top: 82px;
-              left: 45px;
-            `}
-          >
-            testing
-          </TechListTitle>
-          <TechList
-            css={`
-              top: 78px;
-            `}
-          >
-            {testingTech.map((t, i) => {
-              return <TechListItem key={i.toString()}>{t}</TechListItem>
-            })}
-          </TechList>
-
-          <TechListTitle
-            css={`
-              top: 171px;
-              left: 45px;
-            `}
-          >
-            back-end
-          </TechListTitle>
-          <TechList
-            css={`
-              top: 155px;
-            `}
-          >
-            {backendCloudTech.map((t, i) => {
-              return <TechListItem key={i.toString()}>{t}</TechListItem>
-            })}
-          </TechList>
-
-          <TechListTitle
-            css={`
-              top: 261px;
-              left: 45px;
-            `}
-          >
-            cloud
-          </TechListTitle>
-
-          <TechList
-            css={`
-              top: 255px;
-            `}
-          >
-            {cloudTech.map((t, i) => {
-              return <TechListItem key={i.toString()}>{t}</TechListItem>
-            })}
-          </TechList>
-        </div>
-      </Section>
-      <Section>
-        <SectionTitle>projects</SectionTitle>
-
-        <List>
-          {projects.map((p, i) => {
-            return (
-              <ListItem key={i.toString()}>
-                <Anchor target="_blank" href={p.href}>
-                  {p.title}
-                </Anchor>
-              </ListItem>
-            )
-          })}
-        </List>
-      </Section>
+          </List>
+        </Section>
+      </Element>
     </main>
   </Layout>
 )
@@ -200,16 +209,14 @@ const BioWrapper = styled.div`
 const SectionTitle = styled.h3`
   font-weight: bold;
   font-size: 24px;
-  color: #f68b9d;
+  color: white;
   text-transform: uppercase;
   margin-bottom: 35px;
   @media screen and (max-width: 550px) {
-    color: white;
     margin-bottom: 10px;
   }
 `
 
-// Visible on mobile only
 const SayMyName = styled.h1`
   display: none;
   color: white;
@@ -227,6 +234,9 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin-right: 15px;
+  &:last-of-type {
+    margin-right: 0;
+  }
 `
 
 const TechList = styled(List)`
@@ -278,6 +288,33 @@ const RightSection = styled.div`
   color: white;
   max-width: 650px;
   margin-top: -25px;
+`
+
+const Exotic = styled.span`
+  position: relative;
+  color: #f68b9d;
+  &:hover {
+    &:before {
+      display: block;
+      content: "";
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      background: url("https://github.com/robb0wen/synthwave-vscode/raw/master/theme.jpg")
+        no-repeat;
+      background-size: contain;
+      top: 0;
+      right: 0;
+      @media screen and (max-width: 500px) {
+        width: 300px;
+        height: 300px;
+        right: -550px;
+      }
+      @media screen and (max-width: 550px) {
+        right: -100px;
+      }
+    }
+  }
 `
 
 const aboutLinks = [
