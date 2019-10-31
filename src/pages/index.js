@@ -8,7 +8,11 @@ import { Element } from "react-scroll"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO
+      title="Full-stack JavaScript Engineer"
+      description="Full-stack JavaScript Engineer based in Belgrade, Serbia who loves writing TypeScript, React & Node. Passionate about GraphQL & open-source."
+      image="http://zivanovicb.com/static/0d5c9aa56e39c73a4ef450079c28f83f/b33a3/me.jpg"
+    />
     <main>
       <Section
         css={`
