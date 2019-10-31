@@ -230,6 +230,7 @@ const SayMyName = styled.h1`
 
 const List = styled.ul`
   display: flex;
+  flex-wrap: wrap;
 `
 
 const ListItem = styled.li`
@@ -287,6 +288,7 @@ const RightSection = styled.div`
   font-size: 16px;
   color: white;
   max-width: 650px;
+  width: 100%;
   margin-top: -25px;
 `
 
