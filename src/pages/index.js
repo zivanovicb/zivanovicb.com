@@ -333,10 +333,6 @@ const aboutLinks = [
     href: "https://www.linkedin.com/in/zivanovicb1/",
   },
   {
-    title: "Twitter",
-    href: "https://twitter.com/branunnaki",
-  },
-  {
     title: "Email",
     href: "mailto:zivanovic.b1@hotmail.com",
   },
