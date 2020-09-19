@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import Icon from "../components/icon"
+// import Icon from "../components/icon"
 import { Element } from "react-scroll"
 
 const IndexPage = () => (
@@ -71,105 +71,6 @@ const IndexPage = () => (
           </RightSection>
         </BioWrapper>
       </Section>
-
-      <Element name="techstack">
-        <Section
-          css={`
-            @media screen and (max-width: 550px) {
-              display: none;
-            }
-          `}
-        >
-          <SectionTitle>tech stack</SectionTitle>
-          <div
-            css={`
-              position: relative;
-            `}
-          >
-            <Icon
-              name="techstackSeparator"
-              width="30px"
-              height="273px"
-              css={`
-                margin-right: 110px;
-              `}
-            />
-            <TechListTitle
-              css={`
-                top: -8px;
-                left: 45px;
-              `}
-            >
-              front-end
-            </TechListTitle>
-
-            <TechList
-              css={`
-                top: -21px;
-              `}
-            >
-              {frontendTech.map((t, i) => {
-                return <TechListItem key={i.toString()}>{t}</TechListItem>
-              })}
-            </TechList>
-
-            <TechListTitle
-              css={`
-                top: 82px;
-                left: 45px;
-              `}
-            >
-              testing
-            </TechListTitle>
-            <TechList
-              css={`
-                top: 78px;
-              `}
-            >
-              {testingTech.map((t, i) => {
-                return <TechListItem key={i.toString()}>{t}</TechListItem>
-              })}
-            </TechList>
-
-            <TechListTitle
-              css={`
-                top: 171px;
-                left: 45px;
-              `}
-            >
-              back-end
-            </TechListTitle>
-            <TechList
-              css={`
-                top: 155px;
-              `}
-            >
-              {backendCloudTech.map((t, i) => {
-                return <TechListItem key={i.toString()}>{t}</TechListItem>
-              })}
-            </TechList>
-
-            <TechListTitle
-              css={`
-                top: 261px;
-                left: 45px;
-              `}
-            >
-              cloud
-            </TechListTitle>
-
-            <TechList
-              css={`
-                top: 255px;
-              `}
-            >
-              {cloudTech.map((t, i) => {
-                return <TechListItem key={i.toString()}>{t}</TechListItem>
-              })}
-            </TechList>
-          </div>
-        </Section>
-      </Element>
 
       <Element name="projects">
         <Section>
@@ -385,12 +286,12 @@ const backendCloudTech = [
 const projects = [
   {
     title: "ProductHub",
-    href: "https://producthub.app",
+    href: "https://producthub.net",
   },
-  {
-    title: "Codeleak",
-    href: "https://codeleak.io",
-  },
+  // {
+  //   title: "Codeleak",
+  //   href: "https://codeleak.io",
+  // },
   {
     title: "Resi",
     href: "https://resiapp.co",

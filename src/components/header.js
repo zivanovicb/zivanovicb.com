@@ -13,7 +13,7 @@ const Header = () => {
             branko zivanovic. <span>full-stack javascript engineer</span>
           </Title>
 
-          <nav>
+          {/* <nav>
             <List>
               {links.map((l, i) => {
                 return (
@@ -33,7 +33,7 @@ const Header = () => {
                 )
               })}
             </List>
-          </nav>
+          </nav> */}
         </Row>
       </Container>
     </Wrapper>
@@ -99,10 +99,10 @@ const links = [
     index: 0,
     title: "about",
   },
-  {
-    index: 1,
-    title: "tech stack",
-  },
+  // {
+  //   index: 1,
+  //   title: "tech stack",
+  // },
   {
     index: 2,
     title: "projects",
