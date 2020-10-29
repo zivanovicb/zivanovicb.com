@@ -37,9 +37,9 @@ const IndexPage = () => (
               </span>
               <br></br>
               <br></br>
-              I’m a Full-stack JavaScript Engineer based in Belgrade 🇷🇸 with 5
+              I’m a Full-stack JavaScript Engineer based in Belgrade 🇷🇸 with 6
               years of professional experience.
-              <br></br>I love writing TypeScript, React & Node in my &nbsp;
+              <br></br>I love writing TypeScript, React, Node & Django in my &nbsp;
               <Exotic css={``}>exotic code editor</Exotic>
               &nbsp; while randomly switching channels on{" "}
               <a target="_blank" href="https://di.fm">
